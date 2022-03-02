@@ -108,3 +108,25 @@ function AddContact(firstName,lastName,address,city,state,zip,mobileNumber,email
 }
 AddContact('Jack','Rao','Block','Manglore','Karnataka','123456','91 9876543211','jack_1234@gmail.com');
 console.log(contacts.toString());
+//Find a contact and update it using first name
+function obtainingContactWithName(firstName){
+    for(let i = 0; i < contacts.length; i++){
+        if(contacts[i].firstName == firstName){
+            return i;
+        }
+    }
+    return -1;
+}
+//editing a contact using first name
+let contactindex=obtainingContactWithName('Jack');
+if(contactindex != -1){
+    console.log("Before Updation : ");
+    console.log(contacts.toString());
+    contacts[contactindex].firstName='Jackson';
+    contacts[contactindex].mobileNumber='91 9786543211';
+    contacts[contactindex].zip='987654'
+    console.log("Contacts after updation");
+    console.log(contacts.toString());
+}else{
+    console.log("Sorry....contact not foud");
+}
