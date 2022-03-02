@@ -175,3 +175,13 @@ SearchCityOrState('Mumbai');
 //search for state...
 console.log("Searching with state ");
 SearchCityOrState('Karnataka');
+
+// get No.of persons by city or state
+function getCountByCity(city) {
+    return contacts.filter(x => x.city == city).reduce((countOfContact, x) => countOfContact += 1, 0);
+}
+function getCountByState(state) {
+    return contacts.filter(x => x.state == state).reduce((countOfContact, x) => countOfContact += 1, 0);
+}
+console.log("Number of contacts present in the city:  " + getCountByCity("Hubli"));
+console.log("Number of contacts present in the state: " + getCountByState("Maharashtra"));
