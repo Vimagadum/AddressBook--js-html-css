@@ -102,6 +102,11 @@ class ContactDetails {
 console.log("To add a contact : ")
 let contacts = new Array();
 function AddContact(firstName,lastName,address,city,state,zip,mobileNumber,emailId) {
+    //to check for duplicate contact in the addressbook
+    if(contacts.some(x=> x.firstName == firstName)){
+        console.log("Person exists !!!!!");
+        return;
+    }
     let contact = new ContactDetails(firstName,lastName,address,city,state,zip,mobileNumber,emailId);
     //contact added into array
     contacts.push(contact);
