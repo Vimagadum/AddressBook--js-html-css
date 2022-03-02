@@ -100,7 +100,7 @@ class ContactDetails {
         }    
 }
 
-//UC3:Add a contact into array
+//Add a contact into array
 console.log("To add a contact : ")
 let contacts = new Array();
 function AddContact(firstName,lastName,address,city,state,zip,mobileNumber,emailId) {
@@ -120,7 +120,7 @@ AddContact('Rock','Rao','Block','Gandhinagar','Gujarat','123459','91 9876543244'
 
 console.log(contacts.toString());
 
-//UC7:Find a contact and update it using first name
+//Find a contact and update it using first name
 function obtainingContactWithName(firstName){
     for(let i = 0; i < contacts.length; i++){
         if(contacts[i].firstName == firstName){
@@ -130,7 +130,7 @@ function obtainingContactWithName(firstName){
     return -1;
 }
 
-//UC4:editing a contact using first name
+//editing a contact using first name
 let contactindex=obtainingContactWithName('Mac');
 if(contactindex != -1){
     console.log("Before Updation : ");
@@ -144,7 +144,7 @@ if(contactindex != -1){
     console.log("Sorry....contact not foud");
 }
 
-//UC5:deleting a contact from array using name
+//deleting a contact from array using name
 function deleteContactByName(firstName){
     for(let i =0; i < contacts.length; i++){
         if(contacts[i].firstName == firstName){
@@ -157,7 +157,7 @@ function deleteContactByName(firstName){
 deleteContactByName('Sam');
 console.log("Contact deleted successfully");
 
-//UC6:count people
+//count people
 //using reduce method
 let count = contacts.reduce(((count) => {count +=1;return count;}),0);
 console.log("Number of persons in adressBook is : " +count);
@@ -192,3 +192,19 @@ let sortedArray = new Array();
 contacts.forEach(contact => sortedArray.push(contact.toString()));
 sortedArray.sort();
 console.log(sortedArray);
+
+//UC12:Sort contact by city,state or zip
+var sortByCityArray = contacts;
+var sortByStateArray = contacts;
+var sortByZipArray = contacts;
+//Sort by city
+sortByCityArray.sort((a,b) => a.city.localeCompare(b.city));
+console.log("Contacts sorted by city:")
+sortByCityArray.forEach(contact=>console.log(contact.toString()));
+//Sort by state
+sortByStateArray.sort((a,b) => a.state.localeCompare(b.state));
+console.log("Contacts sorted by state:")
+sortByStateArray.forEach(contact=>console.log(contact.toString()));
+sortByZipArray.sort((a,b) => a.zip.localeCompare(b.zip));
+console.log("Contacts sorted by zip:")
+sortByZipArray.forEach(contact=>console.log(contact.toString()));
