@@ -107,6 +107,10 @@ function AddContact(firstName,lastName,address,city,state,zip,mobileNumber,email
     contacts.push(contact);
 }
 AddContact('Jack','Rao','Block','Manglore','Karnataka','123456','91 9876543211','jack_1234@gmail.com');
+AddContact('Mac','Rao','Block','Banglore','Karnataka','123457','91 9876543222','mac_1234@gmail.com');
+AddContact('Sam','Rao','Block','Mumabi','Maharashta','123458','91 9876543233','sam_1234@gmail.com');
+AddContact('Rock','Rao','Block','Pune','Maharashta','123459','91 9876543244','rock_1234@gmail.com');
+
 console.log(contacts.toString());
 //Find a contact and update it using first name
 function obtainingContactWithName(firstName){
@@ -142,3 +146,8 @@ function deleteContactByName(firstName){
 }
 deleteContactByName('Jackson');
 console.log("Contact deleted successfully");
+//UC6 count people
+console.log("Number of persons in AddressBook");
+//using reduce method
+let count = contacts.reduce(((count) => {count +=1;return count;}),0);
+console.log("Number of persons in adressBook is : " +count);
