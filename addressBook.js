@@ -96,9 +96,11 @@ class ContactDetails {
         toString(){
             return "FirstName: "+this.firstName+",LastName: "+this.lastName+",Address: "+this.address+",City: "
                     +this.city+",State: "+this.state+",Zip: "+this.zip+",MobileNumber: "+this.mobileNumber+",EmailId: "
-                    +this.emailId;
+                    +this.emailId+ "\n";
         }    
-    }
+}
+
+//UC3:Add a contact into array
 console.log("To add a contact : ")
 let contacts = new Array();
 function AddContact(firstName,lastName,address,city,state,zip,mobileNumber,emailId) {
@@ -111,13 +113,14 @@ function AddContact(firstName,lastName,address,city,state,zip,mobileNumber,email
     //contact added into array
     contacts.push(contact);
 }
-AddContact('Jack','Rao','Block','Manglore','Karnataka','123456','91 9876543211','jack_1234@gmail.com');
-AddContact('Mac','Rao','Block','Banglore','Karnataka','123457','91 9876543222','mac_1234@gmail.com');
-AddContact('Sam','Rao','Block','Mumabi','Maharashta','123458','91 9876543233','sam_1234@gmail.com');
-AddContact('Rock','Rao','Block','Pune','Maharashta','123459','91 9876543244','rock_1234@gmail.com');
+AddContact('Jack','Rao','Block','Bangalore','Karnataka','123456','91 9876543211','jack_1234@gmail.com');
+AddContact('Mac','Rao','Block','Chennai','Tamilnadu','123457','91 9876543222','mac_1234@gmail.com');
+AddContact('Sam','Rao','Block','Mumbai','Maharashta','123458','91 9876543233','sam_1234@gmail.com');
+AddContact('Rock','Rao','Block','Gandhinagar','Gujarat','123459','91 9876543244','rock_1234@gmail.com');
 
 console.log(contacts.toString());
-//Find a contact and update it using first name
+
+//UC7:Find a contact and update it using first name
 function obtainingContactWithName(firstName){
     for(let i = 0; i < contacts.length; i++){
         if(contacts[i].firstName == firstName){
@@ -126,20 +129,22 @@ function obtainingContactWithName(firstName){
     }
     return -1;
 }
-//editing a contact using first name
-let contactindex=obtainingContactWithName('Jack');
+
+//UC4:editing a contact using first name
+let contactindex=obtainingContactWithName('Mac');
 if(contactindex != -1){
     console.log("Before Updation : ");
     console.log(contacts.toString());
-    contacts[contactindex].firstName='Jackson';
-    contacts[contactindex].mobileNumber='91 9786543211';
-    contacts[contactindex].zip='987654'
+    contacts[contactindex].firstName='Macson';
+    contacts[contactindex].mobileNumber='91 9983333335';
+    contacts[contactindex].zip='456789'
     console.log("Contacts after updation");
     console.log(contacts.toString());
 }else{
     console.log("Sorry....contact not foud");
 }
-//deleting a contact from array using name
+
+//UC5:deleting a contact from array using name
 function deleteContactByName(firstName){
     for(let i =0; i < contacts.length; i++){
         if(contacts[i].firstName == firstName){
@@ -149,10 +154,24 @@ function deleteContactByName(firstName){
         }
     }
 }
-deleteContactByName('Jackson');
+deleteContactByName('Sam');
 console.log("Contact deleted successfully");
-//UC6 count people
-console.log("Number of persons in AddressBook");
+
+//UC6:count people
 //using reduce method
 let count = contacts.reduce(((count) => {count +=1;return count;}),0);
 console.log("Number of persons in adressBook is : " +count);
+
+//UC8:to search by city or state
+function SearchCityOrState(cityOrState){
+    //using filter method
+    if(contacts.filter((obj => obj.city == cityOrState)||(obj => obj.state == cityOrState))){
+        console.log(contacts.toString());
+    }
+}
+//search for city
+console.log("Searching with city");
+SearchCityOrState('Mumbai');
+//search for state...
+console.log("Searching with state ");
+SearchCityOrState('Karnataka');
