@@ -130,3 +130,15 @@ if(contactindex != -1){
 }else{
     console.log("Sorry....contact not foud");
 }
+//deleting a contact from array using name
+function deleteContactByName(firstName){
+    for(let i =0; i < contacts.length; i++){
+        if(contacts[i].firstName == firstName){
+            //removes the contact from array
+            contacts.pop(i);
+            console.log(contacts.toString());
+        }
+    }
+}
+deleteContactByName('Jackson');
+console.log("Contact deleted successfully");
