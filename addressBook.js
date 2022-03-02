@@ -185,3 +185,10 @@ function getCountByState(state) {
 }
 console.log("Number of contacts present in the city:  " + getCountByCity("Hubli"));
 console.log("Number of contacts present in the state: " + getCountByState("Maharashtra"));
+
+//Sort the contacts by name
+console.log("Sorting array by names");
+let sortedArray = new Array();
+contacts.forEach(contact => sortedArray.push(contact.toString()));
+sortedArray.sort();
+console.log(sortedArray);
